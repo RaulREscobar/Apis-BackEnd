@@ -9,8 +9,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
             autoIncrement: true
         },
-        // created_at: dataTypes.TIMESTAMP,
-        // updated_at: dataTypes.TIMESTAMP,
+        
         name: {
             type: dataTypes.STRING(100),
             allowNull: false
@@ -34,8 +33,8 @@ module.exports = (sequelize, dataTypes) => {
     const Genre = sequelize.define(alias, cols, config);
 
     Genre.associate = function(models) {
-        Genre.hasMany(models.Movie, { // models.Movies -> Movie es el valor de alias en movie.js
-            as: "movies", // El nombre del modelo pero en plural
+        Genre.hasMany(models.Movie, { 
+            as: "movies", 
             foreignKey: "genre_id"
         })
     }

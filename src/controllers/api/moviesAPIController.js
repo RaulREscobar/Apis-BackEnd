@@ -4,8 +4,6 @@ const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 const moment = require('moment');
 
-
-//Aqui tienen otra forma de llamar a cada uno de los modelos
 const Movies = db.Movie;
 const Genres = db.Genre;
 const Actors = db.Actor;
@@ -148,7 +146,7 @@ const moviesAPIController = {
     destroy: (req,res) => {
         let movieId = req.params.id;
         Movies
-        .destroy({where: {id: movieId}, force: true}) // force: true es para asegurar que se ejecute la acción
+        .destroy({where: {id: movieId}, force: true}) 
         .then(confirm => {
             let respuesta;
             if(confirm){
